@@ -68,11 +68,7 @@ static const gpio_t *external_light = &PD6;
 
 static const gpio_t *builtin_led = &BOARD_LED;
 
-static const buzzer_t buzzer = {
-    .id = TIMER_2,
-    .channel = TIMER_COMPARE_B,
-    .gpio = { .port = IO_PORT_D, .pin = 3 }
-};
+static const buzzer_t *buzzer = &TIMER2_CHANNEL_B;
 
 static const lcd_t lcd = {
     .address = LCD_NXP_EXPANSOR_ADDRESS,
@@ -124,7 +120,7 @@ void system_peripheral_init(void) {
 
     timer_init(SYSTEM_TICK_TIMER, TIMER_MODE_CTC, TIMER_CLOCK_PS_1024);
 
-    timer_config_output_compare_channel(SYSTEM_TICK_TIMER, TIMER_COMPARE_A, TIMER_MODE_CTC, TMR_CALC_MS(SYSTEM_TICK_MS, SYSTEM_TICK_PS), DISABLE_INTERRUPT);
+    timer_config_output_compare_channel(SYSTEM_TICK_TIMER, TIMER_CHANNEL_A, TIMER_MODE_CTC, TMR_CALC_MS(SYSTEM_TICK_MS, SYSTEM_TICK_PS), DISABLE_INTERRUPT);
 
     wdt_init(WDT_TIMEOUT_1S, ENABLE_INTERRUPT);
 }
@@ -144,7 +140,7 @@ void system_component_init(void) {
 
     adc_select_channel(ADC_DEFAULT_CHANNEL);
 
-    buzzer_init(&buzzer);
+    buzzer_init(buzzer);
 
     rtc_init();
 
@@ -221,7 +217,7 @@ void __vector_TIMER0_COMPA_ISR(void) {
     system_tick_count++;
 
     if(system_tick_count == BUZZER_TONE_TIME / SYSTEM_TICK_MS) {
-        buzzer_no_tone(&buzzer);
+        buzzer_no_tone(buzzer);
         timer_disable_interrupt(SYSTEM_TICK_TIMER, TIMER_OUTPUT_COMPARE_A_INTERRUPT);
         system_tick_count = 0;
     }
@@ -251,7 +247,7 @@ void __vector_USART_RX_ISR(void) {
         rx_message.done = true;
 
         /* Play a tone */
-        buzzer_tone(&buzzer, NOTE_D5);
+        buzzer_tone(buzzer, NOTE_D5);
         timer_enable_interrupt(SYSTEM_TICK_TIMER, TIMER_OUTPUT_COMPARE_A_INTERRUPT);
     }
     else if(data == '\b') {

@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Pedro Botelho
+// All rights reserved
+
 #ifndef UTILS_H
 #define UTILS_H
 

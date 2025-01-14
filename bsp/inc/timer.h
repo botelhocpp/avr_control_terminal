@@ -8,6 +8,10 @@
 #include <stdbool.h>
 
 #include "atmega328p.h"
+#include "gpio.h"
+
+#define TIMER_MODULES_NUMBER    (3)
+#define TIMER_CHANNELS_NUMBER   (2)
 
 #define TMR_CALC_MS(period, ps) ((uint16_t) ((CPU_FREQ/ps)*(period/1000.0) - 1))
 #define TMR_CALC_HZ(freq, ps)   ((uint16_t) ((CPU_FREQ/ps)/(freq/1.0) - 1))
@@ -33,8 +37,8 @@ typedef enum timer_compare_output_mode {
 } timer_compare_output_mode;
 
 typedef enum timer_compare_channel {
-    TIMER_COMPARE_A,
-    TIMER_COMPARE_B
+    TIMER_CHANNEL_A,
+    TIMER_CHANNEL_B
 } timer_compare_channel;
 
 typedef enum timer_mode {
@@ -54,6 +58,11 @@ typedef enum timer_id {
     TIMER_1,
     TIMER_2
 } timer_id;
+
+typedef struct timer_channel_t {
+    timer_id id;
+    timer_compare_channel channel;
+} timer_channel_t;
 
 #define timer_set_pwm_period timer_set_input_compare_value
 

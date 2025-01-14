@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Pedro Botelho
+// All rights reserved
+
 #include "eeprom.h"
 
 #include "atmega328p.h"

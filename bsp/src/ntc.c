@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Pedro Botelho
+// All rights reserved
+
 #include "ntc.h"
 
 #include <math.h>

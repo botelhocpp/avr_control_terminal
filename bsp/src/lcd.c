@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Pedro Botelho
+// All rights reserved
+
 #include "lcd.h"
 
 #include "twi.h"

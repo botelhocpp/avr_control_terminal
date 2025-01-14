@@ -5,7 +5,6 @@
 #define SERVO_H
 
 #include "timer.h"
-#include "gpio.h"
 #include "utils.h"
 
 #define SERVO_TIMER_ID              (TIMER_1)
@@ -19,13 +18,10 @@
 #define SERVO_MAX_VALUE             (TMR_CALC_MS(SERVO_MAX_ANGLE_MS, SERVO_TIMER_PS))
 #define SERVO_ANGLE_VALUE(angle)    (map(angle, SERVO_MIN_ANGLE, SERVO_MAX_ANGLE, SERVO_MIN_VALUE, SERVO_MAX_VALUE))    
 
-typedef struct servo_t {
-    timer_compare_channel channel;
-    gpio_t gpio;
-} servo_t;
+typedef timer_compare_channel servo_channel;
 
-void servo_init(const servo_t* servo, uint16_t default_value);
+void servo_init(servo_channel channel, uint16_t default_value);
 
-void servo_write(const servo_t* servo, uint16_t value);
+void servo_write(servo_channel channel, uint16_t value);
 
 #endif // SERVO_H

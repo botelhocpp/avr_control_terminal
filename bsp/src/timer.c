@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Pedro Botelho
+// All rights reserved
+
 #include "timer.h"
 
 #include "atmega328p.h"
@@ -103,7 +106,7 @@ void timer_config_output_compare_channel(timer_id id, timer_compare_channel chan
 
     timer_set_output_compare_value(id, channel, period);
 
-    if(channel == TIMER_COMPARE_A) {
+    if(channel == TIMER_CHANNEL_A) {
         mode_mask = (mode << 6);
         interrupt = TIMER_OUTPUT_COMPARE_A_INTERRUPT;
     }
@@ -126,4 +129,3 @@ void timer_enable_interrupt(timer_id id, timer_interrupt interrupt) {
 void timer_disable_interrupt(timer_id id, timer_interrupt interrupt) {
     HWREG(TIMER_TIMSK_REGS[id]) &= ~(1U << interrupt);
 }
-

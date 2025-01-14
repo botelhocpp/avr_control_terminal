@@ -1,3 +1,6 @@
+/* Copyright (c) 2025 Pedro Botelho */
+/* All rights reserved */
+
 OUTPUT_FORMAT("elf32-avr","elf32-avr","elf32-avr")
 OUTPUT_ARCH(avr:5)
 

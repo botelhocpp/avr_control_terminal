@@ -4,11 +4,41 @@
 #ifndef PIN_H
 #define PIN_H
 
+#include "timer.h"
+
+#define CREATE_GPIO_PIN_ARRAY
+#define CREATE_TIMER_CHANNELS_ARRAY
+
+#ifdef CREATE_GPIO_PIN_ARRAY
+
 #include "gpio.h"
 
 #define PIN_NUMBER  (20)
 
 #define BOARD_LED   (PB5)
+
+#define PD0         ((const gpio_t) { .port = IO_PORT_D, .pin = 0 })
+#define PD1         ((const gpio_t) { .port = IO_PORT_D, .pin = 1 })
+#define PD2         ((const gpio_t) { .port = IO_PORT_D, .pin = 2 })
+#define PD3         ((const gpio_t) { .port = IO_PORT_D, .pin = 3 })
+#define PD4         ((const gpio_t) { .port = IO_PORT_D, .pin = 4 })
+#define PD5         ((const gpio_t) { .port = IO_PORT_D, .pin = 5 })
+#define PD6         ((const gpio_t) { .port = IO_PORT_D, .pin = 6 })
+#define PD7         ((const gpio_t) { .port = IO_PORT_D, .pin = 7 })
+
+#define PB0         ((const gpio_t) { .port = IO_PORT_B, .pin = 0 })
+#define PB1         ((const gpio_t) { .port = IO_PORT_B, .pin = 1 })
+#define PB2         ((const gpio_t) { .port = IO_PORT_B, .pin = 2 })
+#define PB3         ((const gpio_t) { .port = IO_PORT_B, .pin = 3 })
+#define PB4         ((const gpio_t) { .port = IO_PORT_B, .pin = 4 })
+#define PB5         ((const gpio_t) { .port = IO_PORT_B, .pin = 5 })
+
+#define PC0         ((const gpio_t) { .port = IO_PORT_C, .pin = 0 })
+#define PC1         ((const gpio_t) { .port = IO_PORT_C, .pin = 1 })
+#define PC2         ((const gpio_t) { .port = IO_PORT_C, .pin = 2 })
+#define PC3         ((const gpio_t) { .port = IO_PORT_C, .pin = 3 })
+#define PC4         ((const gpio_t) { .port = IO_PORT_C, .pin = 4 })
+#define PC5         ((const gpio_t) { .port = IO_PORT_C, .pin = 5 })
 
 #define D0  (0)
 #define D1  (1)
@@ -31,29 +61,30 @@
 #define A4  (18)
 #define A5  (19)
 
-#define PD0 (GPIO_PINS[D0])
-#define PD1 (GPIO_PINS[D1])
-#define PD2 (GPIO_PINS[D2])
-#define PD3 (GPIO_PINS[D3])
-#define PD4 (GPIO_PINS[D4])
-#define PD5 (GPIO_PINS[D5])
-#define PD6 (GPIO_PINS[D6])
-#define PD7 (GPIO_PINS[D7])
+extern const gpio_t *GPIO_PINS[PIN_NUMBER];
 
-#define PB0 (GPIO_PINS[D8])
-#define PB1 (GPIO_PINS[D9])
-#define PB2 (GPIO_PINS[D10])
-#define PB3 (GPIO_PINS[D11])
-#define PB4 (GPIO_PINS[D12])
-#define PB5 (GPIO_PINS[D13])
+#ifdef CREATE_TIMER_CHANNELS_ARRAY
 
-#define PC0 (GPIO_PINS[A0])
-#define PC1 (GPIO_PINS[A1])
-#define PC2 (GPIO_PINS[A2])
-#define PC3 (GPIO_PINS[A3])
-#define PC4 (GPIO_PINS[A4])
-#define PC5 (GPIO_PINS[A5])
+#define OC0A                    (TIMER0_CHANNEL_A)
+#define OC0B                    (TIMER0_CHANNEL_B)
+#define OC1A                    (TIMER1_CHANNEL_A)
+#define OC1B                    (TIMER1_CHANNEL_B)
+#define OC2A                    (TIMER2_CHANNEL_A)
+#define OC2B                    (TIMER2_CHANNEL_B)
 
-extern const gpio_t GPIO_PINS[PIN_NUMBER];
+#define TIMER0_CHANNEL_A        ((const timer_channel_t) { .id = TIMER_0, .channel = TIMER_CHANNEL_A })
+#define TIMER0_CHANNEL_B        ((const timer_channel_t) { .id = TIMER_0, .channel = TIMER_CHANNEL_B })
+#define TIMER1_CHANNEL_A        ((const timer_channel_t) { .id = TIMER_1, .channel = TIMER_CHANNEL_A })
+#define TIMER1_CHANNEL_B        ((const timer_channel_t) { .id = TIMER_1, .channel = TIMER_CHANNEL_B })
+#define TIMER2_CHANNEL_A        ((const timer_channel_t) { .id = TIMER_2, .channel = TIMER_CHANNEL_A })
+#define TIMER2_CHANNEL_B        ((const timer_channel_t) { .id = TIMER_2, .channel = TIMER_CHANNEL_B })
+
+extern const gpio_t *TIMER_CHANNEL_PINS[TIMER_MODULES_NUMBER][TIMER_CHANNELS_NUMBER];
+
+const gpio_t *pin_get_gpio_from_timer_channel(const timer_channel_t *timer_channel);
+
+#endif // CREATE_TIMER_CHANNELS_ARRAY
+
+#endif // CREATE_GPIO_PIN_ARRAY
 
 #endif // PIN_H

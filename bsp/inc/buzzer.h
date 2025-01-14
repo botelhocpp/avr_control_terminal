@@ -5,7 +5,6 @@
 #define BUZZER_H
 
 #include "timer.h"
-#include "gpio.h"
 
 #define BUZZER_TIMER_PS     (1024)
 
@@ -88,11 +87,7 @@
 #define NOTE_D8     (TMR_CALC_HZ(4699, BUZZER_TIMER_PS)) 
 #define NOTE_DS8    (TMR_CALC_HZ(4978, BUZZER_TIMER_PS)) 
 
-typedef struct buzzer_t {
-    timer_id id;
-    timer_compare_channel channel;
-    gpio_t gpio;
-} buzzer_t;
+typedef timer_channel_t buzzer_t;
 
 void buzzer_init(const buzzer_t* buzzer);
 
