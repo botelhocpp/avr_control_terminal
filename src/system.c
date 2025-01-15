@@ -93,11 +93,13 @@ void system_init(void) {
     uint8_t seconds_counter = 0;
 
     while(seconds_counter < SYSTEM_STARTUP_TIME) {
-        cpu_sleep();
+        __reset_watchdog();
 
         if(flag_ext_interrupt) {
             seconds_counter++;
-        }  
+        } 
+        
+        cpu_sleep(); 
     }
 }
 
@@ -114,7 +116,7 @@ void system_peripheral_init(void) {
 
     ext_interrupt_enable(EXT_INTERRUPT_NUM_0, EXT_INTERRUPT_TRIGGER_FALLING, true);
 
-    adc_init(ADC_REFERENCE_AVCC, ADC_AUTO_TRIGGER_NONE, ADC_PRESCALER_64, ENABLE_INTERRUPT);
+    adc_init(ADC_REFERENCE_AVCC, ADC_AUTO_TRIGGER_NONE, ADC_PRESCALER_128, ENABLE_INTERRUPT);
 
     adc_disable();
 
@@ -158,22 +160,22 @@ void system_lcd_startup_screen(void) {
     lcd_print(&lcd, "Version 1.0.0");
 }
 
-void system_lcd_write_time(const rtc_time_t *rtc_time) {
+void system_lcd_write_time() {
     lcd_clear(&lcd);
 
-    lcd_write_big_number(&lcd, 0, rtc_time->hour / 10);
-    lcd_write_big_number(&lcd, 2, rtc_time->hour % 10);
+    lcd_write_big_number(&lcd, 0, rtc_time.hour / 10);
+    lcd_write_big_number(&lcd, 2, rtc_time.hour % 10);
     lcd_write(&lcd, ':');
 
-    lcd_write_big_number(&lcd, 5, rtc_time->min / 10);
-    lcd_write_big_number(&lcd, 7, rtc_time->min % 10);
+    lcd_write_big_number(&lcd, 5, rtc_time.min / 10);
+    lcd_write_big_number(&lcd, 7, rtc_time.min % 10);
     lcd_write(&lcd, ':');
 
-    lcd_write_big_number(&lcd, 10, rtc_time->sec / 10);
-    lcd_write_big_number(&lcd, 12, rtc_time->sec % 10);
+    lcd_write_big_number(&lcd, 10, rtc_time.sec / 10);
+    lcd_write_big_number(&lcd, 12, rtc_time.sec % 10);
 }
 
-void system_lcd_write_sensors(uint16_t temperature, uint16_t light_percentage) {
+void system_lcd_write_sensors() {
     static char buffer[17];
 
     lcd_clear(&lcd);

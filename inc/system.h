@@ -29,19 +29,19 @@ typedef enum lcd_screen {
 } lcd_screen;
 
 typedef struct eeprom_buffer_t {
-  uint8_t address;
-  uint8_t *data;
-  uint8_t size;
-  uint8_t index;
-  bool done;
-  bool write_mode;
+    uint8_t address;
+    uint8_t *data;
+    uint8_t size;
+    uint8_t index;
+    bool done;
+    bool write_mode;
 } eeprom_buffer_t;
 
 typedef struct usart_message_t {
-  char data[BUFFER_SIZE];
-  uint8_t size;
-  uint8_t index;
-  bool done;
+    char data[BUFFER_SIZE];
+    uint8_t size;
+    uint8_t index;
+    bool done;
 } usart_message_t;
 
 extern eeprom_buffer_t eeprom_buffer;
@@ -70,9 +70,9 @@ void system_component_init(void);
 
 void system_lcd_startup_screen(void);
 
-void system_lcd_write_time(const rtc_time_t *rtc_time);
+void system_lcd_write_time(void);
 
-void system_lcd_write_sensors(uint16_t temperature, uint16_t light_percentage);
+void system_lcd_write_sensors(void);
 
 void system_drive_external_light(uint8_t value);
 

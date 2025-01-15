@@ -52,8 +52,8 @@ typedef struct lcd_t {
 #define LCD_DISPLAYOFF_FLAG             (0x00)
 #define LCD_CURSORON_FLAG               (0x02)
 #define LCD_CURSOROFF_FLAG              (0x00)
-#define lcd_blinkON_FLAG                (0x01)
-#define lcd_blinkOFF_FLAG               (0x00)
+#define LCD_BLINKON_FLAG                (0x01)
+#define LCD_BLINKOFF_FLAG               (0x00)
 
 /* Flags for display/cursor shift */
 
@@ -87,7 +87,7 @@ typedef struct lcd_t {
 #define LCD_DEFAULT_CONTROL_CMD         (LCD_DISPLAYCONTROL_CMD \
                                         | LCD_DISPLAYON_FLAG    \
                                         | LCD_CURSOROFF_FLAG    \
-                                        | lcd_blinkOFF_FLAG)
+                                        | LCD_BLINKOFF_FLAG)
 
 #define LCD_DEFAULT_MODE_CMD            (LCD_ENTRYMODESET_CMD   \
                                         | LCD_CURSORINCREMENT_FLAG    \

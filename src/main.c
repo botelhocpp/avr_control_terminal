@@ -80,10 +80,10 @@ int main(void) {
             
             switch(current_screen) {
                 case LCD_TIME_SCREEN:
-                    system_lcd_write_time(&rtc_time);
+                    system_lcd_write_time();
                     break;
                 case LCD_SENSORS_SCREEN:
-                    system_lcd_write_sensors(temperature, light_percentage);
+                    system_lcd_write_sensors();
                     break;
                 default:
                     break;
