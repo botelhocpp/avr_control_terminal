@@ -178,470 +178,470 @@ Linker script and memory map
 Address of section .data set to 0x800100
                 0x00000000008008ff                PROVIDE (__stack_top, ((ORIGIN (SRAM) + LENGTH (SRAM)) - 0x1))
 
-.text           0x0000000000000000     0x307c
+.text           0x0000000000000000     0x3094
  *(.vectors)
  .vectors       0x0000000000000000       0x68 bsp/lib/libavrbsp.a(start.o)
                 0x0000000000000068                . = ALIGN (0x2)
  *(.text*)
  .text          0x0000000000000068        0x0 obj/main.o
- .text.startup  0x0000000000000068      0x1d6 obj/main.o
+ .text.startup  0x0000000000000068      0x1ee obj/main.o
                 0x0000000000000068                main
- .text          0x000000000000023e      0x66e obj/system.o
-                0x000000000000023e                system_peripheral_init
-                0x00000000000002be                system_component_init
-                0x0000000000000318                system_lcd_startup_screen
-                0x0000000000000358                system_init
-                0x0000000000000382                system_lcd_write_time
-                0x0000000000000432                system_lcd_write_sensors
-                0x00000000000004ca                system_drive_external_light
-                0x00000000000004d4                system_eeprom_write
-                0x00000000000004e8                system_eeprom_read
-                0x00000000000004fa                __vector_TIMER0_COMPA_ISR
-                0x0000000000000564                __vector_USART_UDRE_ISR
-                0x00000000000005dc                __vector_USART_RX_ISR
-                0x00000000000006aa                __vector_INT0_ISR
-                0x0000000000000700                __vector_EE_READY_ISR
-                0x00000000000007aa                __vector_ADC_ISR
-                0x000000000000082e                __vector_WDT_ISR
- .text          0x00000000000008ac      0x282 obj/process.o
-                0x00000000000008de                process_set
-                0x000000000000096c                process_get
-                0x0000000000000a98                process_store
-                0x0000000000000ad8                process_load
- .text          0x0000000000000b2e       0x4c bsp/lib/libavrbsp.a(start.o)
-                0x0000000000000b2e                _start
-                0x0000000000000b46                __copy_data
-                0x0000000000000b60                __clear_bss
-                0x0000000000000b76                __vector_TIMER0_OVF_ISR
-                0x0000000000000b76                __dummy_function
-                0x0000000000000b76                __vector_INT1_ISR
-                0x0000000000000b76                __vector_SPM_READY_ISR
-                0x0000000000000b76                __vector_TIMER1_CAPT_ISR
-                0x0000000000000b76                __vector_TWI_ISR
-                0x0000000000000b76                __vector_TIMER2_COMPA_ISR
-                0x0000000000000b76                __vector_ANALOG_COMP_ISR
-                0x0000000000000b76                __vector_TIMER1_OVF_ISR
-                0x0000000000000b76                __vector_USART_TX_ISR
-                0x0000000000000b76                __vector_SPI_STC_ISR
-                0x0000000000000b76                __vector_PCINT2_ISR
-                0x0000000000000b76                __vector_TIMER1_COMPA_ISR
-                0x0000000000000b76                __vector_PCINT1_ISR
-                0x0000000000000b76                __vector_TIMER2_COMPB_ISR
-                0x0000000000000b76                __vector_TIMER0_COMPB_ISR
-                0x0000000000000b76                __vector_PCINT0_ISR
-                0x0000000000000b76                __vector_TIMER1_COMPB_ISR
-                0x0000000000000b76                __vector_TIMER2_OVF_ISR
- .text          0x0000000000000b7a      0x170 bsp/lib/libavrbsp.a(adc.o)
-                0x0000000000000b7a                adc_enable
-                0x0000000000000b90                adc_disable
-                0x0000000000000ba6                adc_enable_interrupt
-                0x0000000000000bb2                adc_disable_interrupt
-                0x0000000000000bbe                adc_select_channel
-                0x0000000000000bd0                adc_select_reference
-                0x0000000000000bea                adc_select_prescaler
-                0x0000000000000bfc                adc_select_auto_trigger
-                0x0000000000000c32                adc_init
-                0x0000000000000c78                adc_start_conversion
-                0x0000000000000c84                adc_start_conversion_on_channel
-                0x0000000000000c8c                adc_check_completion
-                0x0000000000000c9e                adc_read_value
-                0x0000000000000ca8                adc_enable_digital_input
-                0x0000000000000cc2                adc_disable_digital_input
-                0x0000000000000cda                adc_read
- .text          0x0000000000000cea       0xa8 bsp/lib/libavrbsp.a(buzzer.o)
-                0x0000000000000cea                buzzer_init
-                0x0000000000000d2a                buzzer_tone
-                0x0000000000000d70                buzzer_no_tone
- .text          0x0000000000000d92       0x78 bsp/lib/libavrbsp.a(cpu.o)
-                0x0000000000000d92                cpu_enable_sleep
-                0x0000000000000d9a                cpu_disable_sleep
-                0x0000000000000da2                cpu_sleep
-                0x0000000000000db2                cpu_select_sleep_mode
-                0x0000000000000dc2                cpu_config_sleep
-                0x0000000000000dda                cpu_disable_bod_during_sleep
-                0x0000000000000de8                cpu_setup
-                0x0000000000000dfe                cpu_set_power_reduction_settings
-                0x0000000000000e04                cpu_get_power_reduction_settings
- .text          0x0000000000000e0a      0x100 bsp/lib/libavrbsp.a(eeprom.o)
-                0x0000000000000e0a                eeprom_enable_interrupt
-                0x0000000000000e0e                eeprom_disable_interrupt
-                0x0000000000000e12                eeprom_set_mode
-                0x0000000000000e24                eeprom_init
-                0x0000000000000e3c                eeprom_write_data
-                0x0000000000000e48                eeprom_read_data
-                0x0000000000000e52                eeprom_check_write_busy
-                0x0000000000000e5a                eeprom_write
-                0x0000000000000e7a                eeprom_write_block
-                0x0000000000000eb6                eeprom_read
-                0x0000000000000ece                eeprom_read_block
- .text          0x0000000000000f0a      0x120 bsp/lib/libavrbsp.a(gpio.o)
-                0x0000000000000f0a                gpio_init
-                0x0000000000000f92                gpio_write
-                0x0000000000000fca                gpio_toggle
-                0x0000000000000ffa                gpio_read
- .text          0x000000000000102a      0x158 bsp/lib/libavrbsp.a(interrupt.o)
-                0x000000000000102a                ext_interrupt_enable
-                0x000000000000108a                ext_interrupt_disable
-                0x00000000000010a0                pin_change_interrupt_group_enable
-                0x00000000000010c8                pin_change_interrupt_group_disable
-                0x00000000000010f2                pin_change_interrupt_enable
-                0x000000000000113a                pin_change_interrupt_disable
- .text          0x0000000000001182      0x368 bsp/lib/libavrbsp.a(lcd.o)
-                0x0000000000001182                lcd_send
-                0x00000000000011a4                lcd_enable_pulse
-                0x00000000000011e6                lcd_write_nibble
-                0x000000000000120e                lcd_command
-                0x000000000000123e                lcd_write
-                0x0000000000001270                lcd_print
-                0x000000000000129a                lcd_backlight
-                0x00000000000012a0                lcd_clear
-                0x00000000000012bc                lcd_init
-                0x0000000000001372                lcd_home
-                0x000000000000138e                lcd_set_cursor
-                0x00000000000013aa                lcd_create_char
-                0x00000000000013fa                lcd_create_big_numbers
-                0x0000000000001430                lcd_write_big_number
-                0x00000000000014a8                lcd_scroll_left
-                0x00000000000014ae                lcd_scroll_right
-                0x00000000000014b4                lcd_turn_off
-                0x00000000000014ba                lcd_turn_on
-                0x00000000000014c0                lcd_hide_cursor
-                0x00000000000014c4                lcd_show_cursor
-                0x00000000000014ca                lcd_no_blink
-                0x00000000000014ce                lcd_blink
-                0x00000000000014d4                lcd_left_to_right
-                0x00000000000014da                lcd_right_to_left
-                0x00000000000014e0                lcd_autoscroll
-                0x00000000000014e6                lcd_no_autoscroll
- .text          0x00000000000014ea       0x6e bsp/lib/libavrbsp.a(ntc.o)
-                0x00000000000014ea                ntc_convert_temperature
- .text          0x0000000000001558       0x24 bsp/lib/libavrbsp.a(pin.o)
-                0x0000000000001558                pin_get_gpio_from_timer_channel
- .text          0x000000000000157c      0x112 bsp/lib/libavrbsp.a(rtc.o)
-                0x000000000000157c                rtc_init
-                0x00000000000015f4                rtc_set_time
-                0x000000000000164e                rtc_read_time
- .text          0x000000000000168e      0x1fe bsp/lib/libavrbsp.a(timer.o)
-                0x000000000000168e                timer_set_clock
-                0x00000000000016f2                timer_set_counter
-                0x0000000000001710                timer_init
-                0x0000000000001796                timer_set_input_compare_value
-                0x00000000000017a4                timer_set_output_compare_value
-                0x00000000000017d8                timer_enable_interrupt
-                0x00000000000017fc                timer_config_output_compare_channel
-                0x0000000000001866                timer_disable_interrupt
- .text          0x000000000000188c      0x304 bsp/lib/libavrbsp.a(twi.o)
-                0x000000000000188c                twi_enable
-                0x00000000000018a2                twi_disable
-                0x00000000000018b8                twi_send_ack
-                0x00000000000018c4                twi_check_completion
-                0x00000000000018d0                twi_clear_flag
-                0x00000000000018dc                twi_enable_interrupt
-                0x00000000000018ee                twi_disable_interrupt
-                0x00000000000018fe                twi_init
-                0x0000000000001944                twi_get_status
-                0x000000000000194c                twi_send_start
-                0x0000000000001958                twi_send_stop
-                0x0000000000001964                twi_write_data
-                0x000000000000196c                twi_read_data
-                0x0000000000001972                twi_start
-                0x0000000000001990                twi_stop
-                0x00000000000019aa                twi_write
-                0x00000000000019d8                twi_read
-                0x0000000000001a1a                twi_write_byte
-                0x0000000000001a4e                twi_read_byte
-                0x0000000000001a8c                twi_write_multiple
-                0x0000000000001af2                twi_read_multiple
- .text          0x0000000000001b90      0x19a bsp/lib/libavrbsp.a(usart.o)
-                0x0000000000001b90                usart_enable_interrupt
-                0x0000000000001bae                usart_init
-                0x0000000000001bfa                usart_disable_interrupt
-                0x0000000000001c1a                usart_write
-                0x0000000000001c20                usart_read
-                0x0000000000001c26                usart_has_data
-                0x0000000000001c32                usart_is_empty
-                0x0000000000001c3e                usart_write_blocking
-                0x0000000000001c52                usart_read_blocking
-                0x0000000000001c60                usart_write_string_blocking
-                0x0000000000001c86                usart_read_string_blocking
-                0x0000000000001cb8                usart_scan
- .text          0x0000000000001d2a       0x80 bsp/lib/libavrbsp.a(utils.o)
-                0x0000000000001d2a                map
-                0x0000000000001d66                bcd2dec
-                0x0000000000001d78                dec2bcd
-                0x0000000000001d86                delay_ms
-                0x0000000000001d9a                delay_us
- .text          0x0000000000001daa       0xa6 bsp/lib/libavrbsp.a(wdt.o)
-                0x0000000000001daa                wdt_reset
-                0x0000000000001dae                wdt_enable_reset
-                0x0000000000001dba                wdt_disable_reset
-                0x0000000000001dd4                wdt_enable_interrupt
-                0x0000000000001de0                wdt_disable_interrupt
-                0x0000000000001dec                wdt_set_timeout
-                0x0000000000001e0e                wdt_check_occurence
-                0x0000000000001e18                wdt_init
- .text          0x0000000000001e50        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000256      0x66e obj/system.o
+                0x0000000000000256                system_peripheral_init
+                0x00000000000002d6                system_component_init
+                0x0000000000000330                system_lcd_startup_screen
+                0x0000000000000370                system_init
+                0x000000000000039a                system_lcd_write_time
+                0x000000000000044a                system_lcd_write_sensors
+                0x00000000000004e2                system_drive_external_light
+                0x00000000000004ec                system_eeprom_write
+                0x0000000000000500                system_eeprom_read
+                0x0000000000000512                __vector_TIMER0_COMPA_ISR
+                0x000000000000057c                __vector_USART_UDRE_ISR
+                0x00000000000005f4                __vector_USART_RX_ISR
+                0x00000000000006c2                __vector_INT0_ISR
+                0x0000000000000718                __vector_EE_READY_ISR
+                0x00000000000007c2                __vector_ADC_ISR
+                0x0000000000000846                __vector_WDT_ISR
+ .text          0x00000000000008c4      0x282 obj/process.o
+                0x00000000000008f6                process_set
+                0x0000000000000984                process_get
+                0x0000000000000ab0                process_store
+                0x0000000000000af0                process_load
+ .text          0x0000000000000b46       0x4c bsp/lib/libavrbsp.a(start.o)
+                0x0000000000000b46                _start
+                0x0000000000000b5e                __copy_data
+                0x0000000000000b78                __clear_bss
+                0x0000000000000b8e                __vector_TIMER0_OVF_ISR
+                0x0000000000000b8e                __dummy_function
+                0x0000000000000b8e                __vector_INT1_ISR
+                0x0000000000000b8e                __vector_SPM_READY_ISR
+                0x0000000000000b8e                __vector_TIMER1_CAPT_ISR
+                0x0000000000000b8e                __vector_TWI_ISR
+                0x0000000000000b8e                __vector_TIMER2_COMPA_ISR
+                0x0000000000000b8e                __vector_ANALOG_COMP_ISR
+                0x0000000000000b8e                __vector_TIMER1_OVF_ISR
+                0x0000000000000b8e                __vector_USART_TX_ISR
+                0x0000000000000b8e                __vector_SPI_STC_ISR
+                0x0000000000000b8e                __vector_PCINT2_ISR
+                0x0000000000000b8e                __vector_TIMER1_COMPA_ISR
+                0x0000000000000b8e                __vector_PCINT1_ISR
+                0x0000000000000b8e                __vector_TIMER2_COMPB_ISR
+                0x0000000000000b8e                __vector_TIMER0_COMPB_ISR
+                0x0000000000000b8e                __vector_PCINT0_ISR
+                0x0000000000000b8e                __vector_TIMER1_COMPB_ISR
+                0x0000000000000b8e                __vector_TIMER2_OVF_ISR
+ .text          0x0000000000000b92      0x170 bsp/lib/libavrbsp.a(adc.o)
+                0x0000000000000b92                adc_enable
+                0x0000000000000ba8                adc_disable
+                0x0000000000000bbe                adc_enable_interrupt
+                0x0000000000000bca                adc_disable_interrupt
+                0x0000000000000bd6                adc_select_channel
+                0x0000000000000be8                adc_select_reference
+                0x0000000000000c02                adc_select_prescaler
+                0x0000000000000c14                adc_select_auto_trigger
+                0x0000000000000c4a                adc_init
+                0x0000000000000c90                adc_start_conversion
+                0x0000000000000c9c                adc_start_conversion_on_channel
+                0x0000000000000ca4                adc_check_completion
+                0x0000000000000cb6                adc_read_value
+                0x0000000000000cc0                adc_enable_digital_input
+                0x0000000000000cda                adc_disable_digital_input
+                0x0000000000000cf2                adc_read
+ .text          0x0000000000000d02       0xa8 bsp/lib/libavrbsp.a(buzzer.o)
+                0x0000000000000d02                buzzer_init
+                0x0000000000000d42                buzzer_tone
+                0x0000000000000d88                buzzer_no_tone
+ .text          0x0000000000000daa       0x78 bsp/lib/libavrbsp.a(cpu.o)
+                0x0000000000000daa                cpu_enable_sleep
+                0x0000000000000db2                cpu_disable_sleep
+                0x0000000000000dba                cpu_sleep
+                0x0000000000000dca                cpu_select_sleep_mode
+                0x0000000000000dda                cpu_config_sleep
+                0x0000000000000df2                cpu_disable_bod_during_sleep
+                0x0000000000000e00                cpu_setup
+                0x0000000000000e16                cpu_set_power_reduction_settings
+                0x0000000000000e1c                cpu_get_power_reduction_settings
+ .text          0x0000000000000e22      0x100 bsp/lib/libavrbsp.a(eeprom.o)
+                0x0000000000000e22                eeprom_enable_interrupt
+                0x0000000000000e26                eeprom_disable_interrupt
+                0x0000000000000e2a                eeprom_set_mode
+                0x0000000000000e3c                eeprom_init
+                0x0000000000000e54                eeprom_write_data
+                0x0000000000000e60                eeprom_read_data
+                0x0000000000000e6a                eeprom_check_write_busy
+                0x0000000000000e72                eeprom_write
+                0x0000000000000e92                eeprom_write_block
+                0x0000000000000ece                eeprom_read
+                0x0000000000000ee6                eeprom_read_block
+ .text          0x0000000000000f22      0x120 bsp/lib/libavrbsp.a(gpio.o)
+                0x0000000000000f22                gpio_init
+                0x0000000000000faa                gpio_write
+                0x0000000000000fe2                gpio_toggle
+                0x0000000000001012                gpio_read
+ .text          0x0000000000001042      0x158 bsp/lib/libavrbsp.a(interrupt.o)
+                0x0000000000001042                ext_interrupt_enable
+                0x00000000000010a2                ext_interrupt_disable
+                0x00000000000010b8                pin_change_interrupt_group_enable
+                0x00000000000010e0                pin_change_interrupt_group_disable
+                0x000000000000110a                pin_change_interrupt_enable
+                0x0000000000001152                pin_change_interrupt_disable
+ .text          0x000000000000119a      0x368 bsp/lib/libavrbsp.a(lcd.o)
+                0x000000000000119a                lcd_send
+                0x00000000000011bc                lcd_enable_pulse
+                0x00000000000011fe                lcd_write_nibble
+                0x0000000000001226                lcd_command
+                0x0000000000001256                lcd_write
+                0x0000000000001288                lcd_print
+                0x00000000000012b2                lcd_backlight
+                0x00000000000012b8                lcd_clear
+                0x00000000000012d4                lcd_init
+                0x000000000000138a                lcd_home
+                0x00000000000013a6                lcd_set_cursor
+                0x00000000000013c2                lcd_create_char
+                0x0000000000001412                lcd_create_big_numbers
+                0x0000000000001448                lcd_write_big_number
+                0x00000000000014c0                lcd_scroll_left
+                0x00000000000014c6                lcd_scroll_right
+                0x00000000000014cc                lcd_turn_off
+                0x00000000000014d2                lcd_turn_on
+                0x00000000000014d8                lcd_hide_cursor
+                0x00000000000014dc                lcd_show_cursor
+                0x00000000000014e2                lcd_no_blink
+                0x00000000000014e6                lcd_blink
+                0x00000000000014ec                lcd_left_to_right
+                0x00000000000014f2                lcd_right_to_left
+                0x00000000000014f8                lcd_autoscroll
+                0x00000000000014fe                lcd_no_autoscroll
+ .text          0x0000000000001502       0x6e bsp/lib/libavrbsp.a(ntc.o)
+                0x0000000000001502                ntc_convert_temperature
+ .text          0x0000000000001570       0x24 bsp/lib/libavrbsp.a(pin.o)
+                0x0000000000001570                pin_get_gpio_from_timer_channel
+ .text          0x0000000000001594      0x112 bsp/lib/libavrbsp.a(rtc.o)
+                0x0000000000001594                rtc_init
+                0x000000000000160c                rtc_set_time
+                0x0000000000001666                rtc_read_time
+ .text          0x00000000000016a6      0x1fe bsp/lib/libavrbsp.a(timer.o)
+                0x00000000000016a6                timer_set_clock
+                0x000000000000170a                timer_set_counter
+                0x0000000000001728                timer_init
+                0x00000000000017ae                timer_set_input_compare_value
+                0x00000000000017bc                timer_set_output_compare_value
+                0x00000000000017f0                timer_enable_interrupt
+                0x0000000000001814                timer_config_output_compare_channel
+                0x000000000000187e                timer_disable_interrupt
+ .text          0x00000000000018a4      0x304 bsp/lib/libavrbsp.a(twi.o)
+                0x00000000000018a4                twi_enable
+                0x00000000000018ba                twi_disable
+                0x00000000000018d0                twi_send_ack
+                0x00000000000018dc                twi_check_completion
+                0x00000000000018e8                twi_clear_flag
+                0x00000000000018f4                twi_enable_interrupt
+                0x0000000000001906                twi_disable_interrupt
+                0x0000000000001916                twi_init
+                0x000000000000195c                twi_get_status
+                0x0000000000001964                twi_send_start
+                0x0000000000001970                twi_send_stop
+                0x000000000000197c                twi_write_data
+                0x0000000000001984                twi_read_data
+                0x000000000000198a                twi_start
+                0x00000000000019a8                twi_stop
+                0x00000000000019c2                twi_write
+                0x00000000000019f0                twi_read
+                0x0000000000001a32                twi_write_byte
+                0x0000000000001a66                twi_read_byte
+                0x0000000000001aa4                twi_write_multiple
+                0x0000000000001b0a                twi_read_multiple
+ .text          0x0000000000001ba8      0x19a bsp/lib/libavrbsp.a(usart.o)
+                0x0000000000001ba8                usart_enable_interrupt
+                0x0000000000001bc6                usart_init
+                0x0000000000001c12                usart_disable_interrupt
+                0x0000000000001c32                usart_write
+                0x0000000000001c38                usart_read
+                0x0000000000001c3e                usart_has_data
+                0x0000000000001c4a                usart_is_empty
+                0x0000000000001c56                usart_write_blocking
+                0x0000000000001c6a                usart_read_blocking
+                0x0000000000001c78                usart_write_string_blocking
+                0x0000000000001c9e                usart_read_string_blocking
+                0x0000000000001cd0                usart_scan
+ .text          0x0000000000001d42       0x80 bsp/lib/libavrbsp.a(utils.o)
+                0x0000000000001d42                map
+                0x0000000000001d7e                bcd2dec
+                0x0000000000001d90                dec2bcd
+                0x0000000000001d9e                delay_ms
+                0x0000000000001db2                delay_us
+ .text          0x0000000000001dc2       0xa6 bsp/lib/libavrbsp.a(wdt.o)
+                0x0000000000001dc2                wdt_reset
+                0x0000000000001dc6                wdt_enable_reset
+                0x0000000000001dd2                wdt_disable_reset
+                0x0000000000001dec                wdt_enable_interrupt
+                0x0000000000001df8                wdt_disable_interrupt
+                0x0000000000001e04                wdt_set_timeout
+                0x0000000000001e26                wdt_check_occurence
+                0x0000000000001e30                wdt_init
+ .text          0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
  .text.libgcc.mul
-                0x0000000000001e50        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text.libgcc.div
-                0x0000000000001e50       0x18 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
-                0x0000000000001e50                __udivmodqi4
- .text.libgcc   0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text.libgcc.prologue
                 0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text.libgcc.builtins
-                0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text.libgcc.fmul
-                0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text.libgcc.fixed
-                0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
- .text          0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
- .text.libgcc.mul
-                0x0000000000001e68        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.div
-                0x0000000000001e68       0x28 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
-                0x0000000000001e68                __udivmodhi4
- .text.libgcc   0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000001e68       0x18 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
+                0x0000000000001e68                __udivmodqi4
+ .text.libgcc   0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
  .text.libgcc.prologue
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
  .text.libgcc.builtins
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
  .text.libgcc.fmul
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
  .text.libgcc.fixed
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
- .text          0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.mul
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.div
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001e80       0x28 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000001e80                __udivmodhi4
+ .text.libgcc   0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.prologue
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.builtins
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.fmul
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
  .text.libgcc.fixed
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
- .text          0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
- .text          0x0000000000001e90        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok.o)
- .text.avr-libc
-                0x0000000000001e90        0xa /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok.o)
-                0x0000000000001e90                strtok
- .text          0x0000000000001e9a        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcat.o)
- .text.avr-libc
-                0x0000000000001e9a       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcat.o)
-                0x0000000000001e9a                strcat
- .text          0x0000000000001eb0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcmp.o)
- .text.avr-libc
-                0x0000000000001eb0       0x12 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcmp.o)
-                0x0000000000001eb0                strcmp
- .text          0x0000000000001ec2        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcpy.o)
- .text.avr-libc
-                0x0000000000001ec2        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcpy.o)
-                0x0000000000001ec2                strcpy
- .text          0x0000000000001ed0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strncpy.o)
- .text.avr-libc
-                0x0000000000001ed0       0x1e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strncpy.o)
-                0x0000000000001ed0                strncpy
- .text          0x0000000000001eee        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok_r.o)
- .text.avr-libc
-                0x0000000000001eee       0x4e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok_r.o)
-                0x0000000000001eee                strtok_r
- .text          0x0000000000001f3c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(snprintf.o)
- .text.avr-libc
-                0x0000000000001f3c       0x60 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(snprintf.o)
-                0x0000000000001f3c                snprintf
- .text          0x0000000000001f9c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(sscanf.o)
- .text.avr-libc
-                0x0000000000001f9c       0x32 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(sscanf.o)
-                0x0000000000001f9c                sscanf
- .text          0x0000000000001fce        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3.o)
- .text.avr-libc.fplib
-                0x0000000000001fce        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3.o)
-                0x0000000000001fce                __subsf3
-                0x0000000000001fd0                __addsf3
- .text          0x0000000000001fdc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3x.o)
- .text.avr-libc.fplib
-                0x0000000000001fdc       0xcc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3x.o)
-                0x0000000000001ffe                __addsf3x
- .text          0x00000000000020a8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3.o)
- .text.avr-libc.fplib
-                0x00000000000020a8        0x8 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3.o)
-                0x00000000000020a8                __divsf3
- .text          0x00000000000020b0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3x.o)
- .text.avr-libc.fplib
-                0x00000000000020b0       0xdc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3x.o)
-                0x00000000000020d0                __divsf3x
-                0x00000000000020d6                __divsf3_pse
- .text          0x000000000000218c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fixunssfsi.o)
- .text.avr-libc.fplib
-                0x000000000000218c       0x5e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fixunssfsi.o)
-                0x000000000000218c                __fixunssfsi
- .text          0x00000000000021ea        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(floatsisf.o)
- .text.avr-libc.fplib
-                0x00000000000021ea       0x7a /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(floatsisf.o)
-                0x00000000000021ea                __floatunsisf
-                0x00000000000021ee                __floatsisf
- .text          0x0000000000002264        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_inf.o)
- .text.avr-libc.fplib
-                0x0000000000002264        0xc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_inf.o)
-                0x0000000000002264                __fp_inf
- .text          0x0000000000002270        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_nan.o)
- .text.avr-libc.fplib
-                0x0000000000002270        0x6 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_nan.o)
-                0x0000000000002270                __fp_nan
- .text          0x0000000000002276        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscA.o)
- .text.avr-libc.fplib
-                0x0000000000002276        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscA.o)
-                0x0000000000002276                __fp_pscA
- .text          0x0000000000002284        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscB.o)
- .text.avr-libc.fplib
-                0x0000000000002284        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscB.o)
-                0x0000000000002284                __fp_pscB
- .text          0x0000000000002292        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_round.o)
- .text.avr-libc.fplib
-                0x0000000000002292       0x22 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_round.o)
-                0x0000000000002292                __fp_round
- .text          0x00000000000022b4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_split3.o)
- .text.avr-libc.fplib
-                0x00000000000022b4       0x44 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_split3.o)
-                0x00000000000022b4                __fp_split3
-                0x00000000000022c4                __fp_splitA
- .text          0x00000000000022f8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_zero.o)
- .text.avr-libc.fplib
-                0x00000000000022f8        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_zero.o)
-                0x00000000000022f8                __fp_zero
-                0x00000000000022fa                __fp_szero
- .text          0x0000000000002306        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
- .text.avr-libc.fplib
-                0x0000000000002306       0xa0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
-                0x0000000000002316                log
- .text          0x00000000000023a6        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3.o)
- .text.avr-libc.fplib
-                0x00000000000023a6        0x8 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3.o)
-                0x00000000000023a6                __mulsf3
- .text          0x00000000000023ae        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3x.o)
- .text.avr-libc.fplib
-                0x00000000000023ae       0xd2 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3x.o)
-                0x00000000000023cc                __mulsf3x
-                0x00000000000023d2                __mulsf3_pse
- .text          0x0000000000002480        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .text.avr-libc
-                0x0000000000002480      0x3b4 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
-                0x0000000000002480                vfprintf
- .text          0x0000000000002834        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
- .text.avr-libc
-                0x0000000000002834      0x520 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
-                0x0000000000002b4a                vfscanf
- .text          0x0000000000002d54        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(isspace.o)
- .text.avr-libc
-                0x0000000000002d54       0x12 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(isspace.o)
-                0x0000000000002d54                isspace
- .text          0x0000000000002d66        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strchr_P.o)
- .text.avr-libc
-                0x0000000000002d66       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strchr_P.o)
-                0x0000000000002d66                strchr_P
- .text          0x0000000000002d7c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
- .text.avr-libc
-                0x0000000000002d7c       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
-                0x0000000000002d7c                strnlen_P
- .text          0x0000000000002d92        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen.o)
- .text.avr-libc
-                0x0000000000002d92       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen.o)
-                0x0000000000002d92                strnlen
- .text          0x0000000000002da8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fgetc.o)
- .text.avr-libc
-                0x0000000000002da8       0x78 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fgetc.o)
-                0x0000000000002da8                fgetc
- .text          0x0000000000002e20        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fputc.o)
- .text.avr-libc
-                0x0000000000002e20       0x60 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fputc.o)
-                0x0000000000002e20                fputc
- .text          0x0000000000002e80        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ungetc.o)
- .text.avr-libc
-                0x0000000000002e80       0x30 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ungetc.o)
-                0x0000000000002e80                ungetc
- .text          0x0000000000002eb0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
- .text.avr-libc
-                0x0000000000002eb0       0xbc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
-                0x0000000000002eb0                __ultoa_invert
- .text          0x0000000000002f6c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_mpack.o)
- .text.avr-libc.fplib
-                0x0000000000002f6c       0x1c /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_mpack.o)
-                0x0000000000002f6c                __fp_mpack
-                0x0000000000002f70                __fp_mpack_finite
- .text          0x0000000000002f88        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_powser.o)
- .text.avr-libc.fplib
-                0x0000000000002f88       0x4e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_powser.o)
-                0x0000000000002f88                __fp_powser
- .text          0x0000000000002fd6        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(cty_isfalse.o)
- .text.avr-libc
-                0x0000000000002fd6        0x6 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(cty_isfalse.o)
-                0x0000000000002fd6                __ctype_isfalse
-                0x0000000000002fda                __ctype_istrue
- .text          0x0000000000002fdc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text          0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x0000000000002fdc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000000000002fdc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
- .text.libgcc   0x0000000000002fdc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000000000002fdc       0x38 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
-                0x0000000000002fdc                __prologue_saves__
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
- .text          0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+ .text          0x0000000000001ea8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok.o)
+ .text.avr-libc
+                0x0000000000001ea8        0xa /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok.o)
+                0x0000000000001ea8                strtok
+ .text          0x0000000000001eb2        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcat.o)
+ .text.avr-libc
+                0x0000000000001eb2       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcat.o)
+                0x0000000000001eb2                strcat
+ .text          0x0000000000001ec8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcmp.o)
+ .text.avr-libc
+                0x0000000000001ec8       0x12 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcmp.o)
+                0x0000000000001ec8                strcmp
+ .text          0x0000000000001eda        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcpy.o)
+ .text.avr-libc
+                0x0000000000001eda        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strcpy.o)
+                0x0000000000001eda                strcpy
+ .text          0x0000000000001ee8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strncpy.o)
+ .text.avr-libc
+                0x0000000000001ee8       0x1e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strncpy.o)
+                0x0000000000001ee8                strncpy
+ .text          0x0000000000001f06        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok_r.o)
+ .text.avr-libc
+                0x0000000000001f06       0x4e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strtok_r.o)
+                0x0000000000001f06                strtok_r
+ .text          0x0000000000001f54        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(snprintf.o)
+ .text.avr-libc
+                0x0000000000001f54       0x60 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(snprintf.o)
+                0x0000000000001f54                snprintf
+ .text          0x0000000000001fb4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(sscanf.o)
+ .text.avr-libc
+                0x0000000000001fb4       0x32 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(sscanf.o)
+                0x0000000000001fb4                sscanf
+ .text          0x0000000000001fe6        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3.o)
+ .text.avr-libc.fplib
+                0x0000000000001fe6        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3.o)
+                0x0000000000001fe6                __subsf3
+                0x0000000000001fe8                __addsf3
+ .text          0x0000000000001ff4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3x.o)
+ .text.avr-libc.fplib
+                0x0000000000001ff4       0xcc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(addsf3x.o)
+                0x0000000000002016                __addsf3x
+ .text          0x00000000000020c0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3.o)
+ .text.avr-libc.fplib
+                0x00000000000020c0        0x8 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3.o)
+                0x00000000000020c0                __divsf3
+ .text          0x00000000000020c8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3x.o)
+ .text.avr-libc.fplib
+                0x00000000000020c8       0xdc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(divsf3x.o)
+                0x00000000000020e8                __divsf3x
+                0x00000000000020ee                __divsf3_pse
+ .text          0x00000000000021a4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fixunssfsi.o)
+ .text.avr-libc.fplib
+                0x00000000000021a4       0x5e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fixunssfsi.o)
+                0x00000000000021a4                __fixunssfsi
+ .text          0x0000000000002202        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(floatsisf.o)
+ .text.avr-libc.fplib
+                0x0000000000002202       0x7a /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(floatsisf.o)
+                0x0000000000002202                __floatunsisf
+                0x0000000000002206                __floatsisf
+ .text          0x000000000000227c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_inf.o)
+ .text.avr-libc.fplib
+                0x000000000000227c        0xc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_inf.o)
+                0x000000000000227c                __fp_inf
+ .text          0x0000000000002288        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_nan.o)
+ .text.avr-libc.fplib
+                0x0000000000002288        0x6 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_nan.o)
+                0x0000000000002288                __fp_nan
+ .text          0x000000000000228e        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscA.o)
+ .text.avr-libc.fplib
+                0x000000000000228e        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscA.o)
+                0x000000000000228e                __fp_pscA
+ .text          0x000000000000229c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscB.o)
+ .text.avr-libc.fplib
+                0x000000000000229c        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_pscB.o)
+                0x000000000000229c                __fp_pscB
+ .text          0x00000000000022aa        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_round.o)
+ .text.avr-libc.fplib
+                0x00000000000022aa       0x22 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_round.o)
+                0x00000000000022aa                __fp_round
+ .text          0x00000000000022cc        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_split3.o)
+ .text.avr-libc.fplib
+                0x00000000000022cc       0x44 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_split3.o)
+                0x00000000000022cc                __fp_split3
+                0x00000000000022dc                __fp_splitA
+ .text          0x0000000000002310        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_zero.o)
+ .text.avr-libc.fplib
+                0x0000000000002310        0xe /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_zero.o)
+                0x0000000000002310                __fp_zero
+                0x0000000000002312                __fp_szero
+ .text          0x000000000000231e        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
+ .text.avr-libc.fplib
+                0x000000000000231e       0xa0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
+                0x000000000000232e                log
+ .text          0x00000000000023be        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3.o)
+ .text.avr-libc.fplib
+                0x00000000000023be        0x8 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3.o)
+                0x00000000000023be                __mulsf3
+ .text          0x00000000000023c6        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3x.o)
+ .text.avr-libc.fplib
+                0x00000000000023c6       0xd2 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(mulsf3x.o)
+                0x00000000000023e4                __mulsf3x
+                0x00000000000023ea                __mulsf3_pse
+ .text          0x0000000000002498        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .text.avr-libc
+                0x0000000000002498      0x3b4 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                0x0000000000002498                vfprintf
+ .text          0x000000000000284c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
+ .text.avr-libc
+                0x000000000000284c      0x520 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
+                0x0000000000002b62                vfscanf
+ .text          0x0000000000002d6c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(isspace.o)
+ .text.avr-libc
+                0x0000000000002d6c       0x12 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(isspace.o)
+                0x0000000000002d6c                isspace
+ .text          0x0000000000002d7e        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strchr_P.o)
+ .text.avr-libc
+                0x0000000000002d7e       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strchr_P.o)
+                0x0000000000002d7e                strchr_P
+ .text          0x0000000000002d94        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .text.avr-libc
+                0x0000000000002d94       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                0x0000000000002d94                strnlen_P
+ .text          0x0000000000002daa        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .text.avr-libc
+                0x0000000000002daa       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                0x0000000000002daa                strnlen
+ .text          0x0000000000002dc0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fgetc.o)
+ .text.avr-libc
+                0x0000000000002dc0       0x78 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fgetc.o)
+                0x0000000000002dc0                fgetc
+ .text          0x0000000000002e38        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .text.avr-libc
+                0x0000000000002e38       0x60 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fputc.o)
+                0x0000000000002e38                fputc
+ .text          0x0000000000002e98        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ungetc.o)
+ .text.avr-libc
+                0x0000000000002e98       0x30 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ungetc.o)
+                0x0000000000002e98                ungetc
+ .text          0x0000000000002ec8        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+ .text.avr-libc
+                0x0000000000002ec8       0xbc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(ultoa_invert.o)
+                0x0000000000002ec8                __ultoa_invert
+ .text          0x0000000000002f84        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_mpack.o)
+ .text.avr-libc.fplib
+                0x0000000000002f84       0x1c /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_mpack.o)
+                0x0000000000002f84                __fp_mpack
+                0x0000000000002f88                __fp_mpack_finite
+ .text          0x0000000000002fa0        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_powser.o)
+ .text.avr-libc.fplib
+                0x0000000000002fa0       0x4e /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(fp_powser.o)
+                0x0000000000002fa0                __fp_powser
+ .text          0x0000000000002fee        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+ .text.avr-libc
+                0x0000000000002fee        0x6 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(cty_isfalse.o)
+                0x0000000000002fee                __ctype_isfalse
+                0x0000000000002ff2                __ctype_istrue
+ .text          0x0000000000002ff4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
  .text.libgcc.mul
-                0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x0000000000002ff4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
  .text.libgcc.div
-                0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
- .text.libgcc   0x0000000000003014        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x0000000000002ff4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+ .text.libgcc   0x0000000000002ff4        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
  .text.libgcc.prologue
-                0x0000000000003014       0x36 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
-                0x0000000000003014                __epilogue_restores__
+                0x0000000000002ff4       0x38 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+                0x0000000000002ff4                __prologue_saves__
  .text.libgcc.builtins
-                0x000000000000304a        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
  .text.libgcc.fmul
-                0x000000000000304a        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
  .text.libgcc.fixed
-                0x000000000000304a        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_prologue.o)
+ .text          0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.mul
+                0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.div
+                0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc   0x000000000000302c        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.prologue
+                0x000000000000302c       0x36 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+                0x000000000000302c                __epilogue_restores__
+ .text.libgcc.builtins
+                0x0000000000003062        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fmul
+                0x0000000000003062        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
+ .text.libgcc.fixed
+                0x0000000000003062        0x0 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_epilogue.o)
  *(.progmem.data)
- .progmem.data  0x000000000000304a        0xc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
+ .progmem.data  0x0000000000003062        0xc /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(vfscanf_std.o)
  *(.init*)
- .init4         0x0000000000003056       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
-                0x0000000000003056                __do_copy_data
- .init4         0x000000000000306c       0x10 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
-                0x000000000000306c                __do_clear_bss
-                0x00000000000030d6                PROVIDE (__data_load_start, LOADADDR (.data))
+ .init4         0x000000000000306e       0x16 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x000000000000306e                __do_copy_data
+ .init4         0x0000000000003084       0x10 /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000000000003084                __do_clear_bss
+                0x00000000000030ee                PROVIDE (__data_load_start, LOADADDR (.data))
 
 .progmem.gcc_fplib
-                0x000000000000307c       0x5a
+                0x0000000000003094       0x5a
  .progmem.gcc_fplib
-                0x000000000000307c       0x5a /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
+                0x0000000000003094       0x5a /home/botelhocpp/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/libc.a(log.o)
 
-.trampolines    0x00000000000030d6        0x0
- .trampolines   0x00000000000030d6        0x0 linker stubs
+.trampolines    0x00000000000030ee        0x0
+ .trampolines   0x00000000000030ee        0x0 linker stubs
 
-.data           0x0000000000800100      0x2f0 load address 0x00000000000030d6
+.data           0x0000000000800100      0x2f0 load address 0x00000000000030ee
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0x0 obj/main.o
@@ -750,7 +750,7 @@ Address of section .data set to 0x800100
                                          0xa3 (size before relaxing)
                 0x00000000008003f0                PROVIDE (__data_end, .)
 
-.bss            0x00000000008003f0       0xf3 load address 0x00000000000033c6
+.bss            0x00000000008003f0       0xf3 load address 0x00000000000033de
                 0x00000000008003f0                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00000000008003f0        0x0 obj/main.o

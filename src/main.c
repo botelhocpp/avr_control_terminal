@@ -49,10 +49,15 @@ int main(void) {
                     strcpy(tx_message.data, INVALID_STR);
                     tx_message.size = INVALID_STR_SIZE;
                 }
-            }
             
-            strcat(tx_message.data, TERMINAL_STR);
-            tx_message.size += TERMINAL_STR_SIZE;
+                strcat(tx_message.data, TERMINAL_STR);
+                tx_message.size += TERMINAL_STR_SIZE;
+            }
+            else {
+                strcpy(tx_message.data, TERMINAL_STR);
+                tx_message.size = TERMINAL_STR_SIZE;
+            }
+
             tx_message.done = false;
             usart_enable_interrupt(USART_TX_INTERRUPT);
 
